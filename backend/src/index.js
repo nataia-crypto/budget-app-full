@@ -33,9 +33,9 @@ app.get('/api/health', (req, res) => {
 sequelize.sync({ force: false })
   .then(() => {
     console.log('✅ База данных подключена');
-    app.listen(PORT, () => {
+    app.listen(PORT,'0.0.0.0', () => {
       console.log(`🚀 Сервер запущен на порту ${PORT}`);
-      console.log(`📡 API доступен по адресу: http://localhost:${PORT}`);
+      console.log(`📡 API доступен по адресу: http://0.0.0.0:${PORT}`);
     });
   })
   .catch(err => {
@@ -44,3 +44,4 @@ sequelize.sync({ force: false })
   });
 
 module.exports = app;
+
